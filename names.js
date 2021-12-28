@@ -50,14 +50,14 @@ document.addEventListener('click', e => {
       navigator.clipboard.writeText(allNames.join('\n'));
     }
     catch (e) {
-      const textArea = document.createElement('textarea');
-      textArea.value = allNames.join('\n');
-      document.appendChild(textArea);
-      textArea.select();
+      const allNamesTextArea = document.createElement('textarea');
+      allNamesTextArea.value = allNames.join('\n');
+      document.body.appendChild(allNamesTextArea);
+      allNamesTextArea.select();
 
       document.execCommand('copy');
 
-      textArea.remove();
+      allNamesTextArea.remove();
     }
     finally {
       copyAllBtn.textContent = 'Copied!';
