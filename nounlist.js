@@ -7123,7 +7123,7 @@ const suffixes = [
   "more",
   "mor",
   "nė",
-  "te /female/",
+  "te",
   "nen",
   "nik",
   "nova",
