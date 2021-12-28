@@ -4,15 +4,15 @@ document.addEventListener('click', e => {
   if (e.target.matches('#newName')) {
     let newName = '';
     newName += `${firstName()} ${middleInitial()} ${lastName()}`;
-  
+
     const nameTemplate = document.querySelector('#nameListItem');
-  
+
     const clone = nameTemplate.content.cloneNode(true);
-  
+
     clone.querySelector('.name').textContent = newName;
     namesList.appendChild(clone);
-  
-    window.scrollTo(0, document.body.scrollHeight);  
+
+    window.scrollTo(0, document.body.scrollHeight);
   }
   else if (e.target.closest('.copyName')) {
     const parentLi = e.target.closest('.nameLi');

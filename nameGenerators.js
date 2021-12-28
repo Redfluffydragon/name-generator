@@ -7,7 +7,7 @@ function randomLetters(length) {
   if (!length) {
     length = Math.floor(Math.random() * 9) + 1;
   }
-  
+
   const letters = 'abcdefghijklmnopqrstuvwxyz';
 
   let string = '';
