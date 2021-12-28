@@ -18,9 +18,7 @@ function randomLetters(length) {
 }
 
 function firstName() {
-  const name = randomLetters();
-
-  return name.toTitleCase() + (name.length === 1 ? '.' : '');
+  return makeName(makeRandomLanguage());
 }
 
 function middleInitial() {
