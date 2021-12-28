@@ -6,10 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Random Name Generator</title>
   <link rel="stylesheet" href="style.css">
-  <script src="names.js" async defer></script>
   <script src="nameGenerators.js" async defer></script>
   <script src="nounlist.js" async defer></script>
   <script src="language.js" async defer></script>
+  <script src="names.js" async defer></script>
 </head>
 <body>
   <template id="nameListItem">
@@ -28,7 +28,8 @@
 
   <header id="header">
     <button id="newName">New random name</button>
-    <button>Copy all</button>
+    <button id="copyAllBtn">Copy all</button>
+    <button id="clearAllBtn">Clear all</button>
   </header>
 
   <ul class="names"></ul>

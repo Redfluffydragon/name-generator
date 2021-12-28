@@ -30,7 +30,7 @@ function lastName() {
   let name = '';
 
   const prefixChance = Math.random();
-  if (prefixChance > 0.75) {
+  if (prefixChance > 0.5) {
     name += prefixes[Math.floor(Math.random() * prefixes.length)];
   }
 
@@ -43,4 +43,13 @@ function lastName() {
   }
 
   return name.toTitleCase();
+}
+
+function displayName(name) {
+  const nameTemplate = document.querySelector('#nameListItem');
+
+  const clone = nameTemplate.content.cloneNode(true);
+
+  clone.querySelector('.name').textContent = name;
+  document.querySelector('.names').appendChild(clone);
 }
