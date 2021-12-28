@@ -38,30 +38,33 @@ document.addEventListener('click', e => {
 
       window.getSelection().removeRange(range);
     }
-
-    parentLi.querySelector('.toast').classList.add('grow');
-    setTimeout(() => {
-      parentLi.querySelector('.toast').classList.remove('grow');
-    }, 500);
+    finally {
+      parentLi.querySelector('.toast').classList.add('grow');
+      setTimeout(() => {
+        parentLi.querySelector('.toast').classList.remove('grow');
+      }, 500);
+    }
   }
   else if (e.target.matches('#copyAllBtn')) {
     try {
       navigator.clipboard.writeText(allNames.join('\n'));
     }
     catch (e) {
-      let range = document.createRange();
-      range.selectNode(targetName);
-      window.getSelection().addRange(range);
+      const textArea = document.createElement('textarea');
+      textArea.value = allNames.join('\n');
+      document.appendChild(textArea);
+      textArea.select();
 
       document.execCommand('copy');
 
-      window.getSelection().removeRange(range);
+      textArea.remove();
     }
-
-    copyAllBtn.textContent = 'Copied!';
-    setTimeout(() => {
-      copyAllBtn.textContent = 'Copy all';
-    }, 500);
+    finally {
+      copyAllBtn.textContent = 'Copied!';
+      setTimeout(() => {
+        copyAllBtn.textContent = 'Copy all';
+      }, 500);
+    }
   }
   else if (e.target.matches('#clearAllBtn')) {
     if (confirm('Are you sure you want to clear all names?')) {
