@@ -1,63 +1,40 @@
 const namesList = document.querySelector('.names');
 
-document.getElementById('newName').addEventListener('click', () => {
-  let newName = '';
-  newName += `${firstName()} ${middleInitial()} ${lastName()}`;
-
-  const newNameElement = document.createElement('li');
-  newNameElement.textContent = newName;
-  namesList.appendChild(newNameElement);
+document.addEventListener('click', e => {
+  if (e.target.matches('#newName')) {
+    let newName = '';
+    newName += `${firstName()} ${middleInitial()} ${lastName()}`;
   
+    const nameTemplate = document.querySelector('#nameListItem');
+  
+    const clone = nameTemplate.content.cloneNode(true);
+  
+    clone.querySelector('.name').textContent = newName;
+    namesList.appendChild(clone);
+  
+    window.scrollTo(0, document.body.scrollHeight);  
+  }
+  else if (e.target.closest('.copyName')) {
+    const parentLi = e.target.closest('.nameLi');
+    const targetName = parentLi.querySelector('.name');
+
+    try {
+      navigator.clipboard.writeText(targetName.textContent);
+    }
+    catch (e) {
+      let range = document.createRange();
+      range.selectNode(targetName);
+      window.getSelection().addRange(range);
+
+      document.execCommand('copy');
+
+      window.getSelection().removeRange(range);
+    }
+
+    parentLi.querySelector('.toast').classList.add('grow');
+    setTimeout(() => {
+      parentLi.querySelector('.toast').classList.remove('grow');
+    }, 500);
+
+  }
 }, false);
-
-/**
- * Rrqpc uyyjzykny
-Lykvy gnesson
-Liwu zemhkmua
-Cdepf wxwksens
-Zjqvl ordjx
-l
-Cmsqh gczjeaoská
-blicezuaaicz
-If skjwk
-Azqdhqq hyqhkeg
-Yhkom oovo
-Ntf Austrcxdcm
-Bzsq zxhtjvy
-
-Stoneworklu
-Mlsel Mill
-Yd MRNAange
-Ge Feedbackidas
-Uz Platypusci
-Hffc Van Het moth
-Kzlhox Sundayais
-Nh Hazelnutko
-Oqsfk Deleessay
-
-Jsywcks Prestigeanu
-X Collagen
-Zujmwxgn Almondyshyn
-Allunf Buttonappa
-Xnemq Saladka
-Vunr Name
-Sjqfigf Macfootnote
-Sgqca Deep
-Ghsztk Dastambourkar
-Zrsfw Courtchuk
-Omqvnc Screameriauskas
-
-H W. Delladaddy
-Jf G. Tofuevska
-Sptzg N. Migrationtskoy
-Esknloil Y. Wormkyzy
-Qywxtls S. Özlunchmeat
-V F. Ornamentiak
-Fltdbismk N. Familiarity
-Zuu M. Voicesky
-Adxpp E. Toolier
-Jwtglt L. Xylophonekus
-Cspfzrme Q. Setj
-
-Wcad M. Frigateous
- */

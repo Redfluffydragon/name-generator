@@ -5,4 +5,96 @@
 body {
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   font-size: 1.5em;
+  display: flex;
+  place-content: center;
+  gap: 2ch;
+}
+
+button, input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  padding: 1ch;
+}
+
+.imgBtn {
+  background: transparent;
+  padding: 0;
+  border: none;
+  width: 1em;
+  aspect-ratio: 1;
+}
+
+.imgBtn img, svg {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+#header {
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  width: 100%;
+  text-align: center;
+  padding: 1ch;
+  background: white;
+  box-shadow: 5px 7px 15px rgba(0, 0, 0, 0.4);
+}
+
+.names {
+  margin: 4.3em 0 1em;
+  text-align: center;
+  position: relative;
+  padding: 2ch;
+  list-style: none;
+  line-height: 2;
+}
+
+.nameLi {
+  display: grid;
+  grid-template-columns: 1fr 1em;
+  gap: 2ch;
+  align-items: center;
+}
+
+.copyName {
+  position: relative;
+}
+
+.toast {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform-origin: 50% 50%;
+  transform: scale(0) translateX(-50%);
+  transition: transform 0.3s;
+  font-size: 0.8em;
+  background: white;
+  box-shadow: 5px 7px 15px rgba(0, 0, 0, 0.4);
+  padding: 0.5ch;
+}
+
+.scrollableUp {
+  box-shadow: inset 0 5px 15px black;
+}
+
+.scrollableDown::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  box-shadow: 0 -5px 15px black;
+}
+
+.grow {
+  transform: scale(1) translateX(-50%);
+}
+
+.none {
+  display: none;
 }
