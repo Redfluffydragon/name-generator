@@ -6799,7 +6799,8 @@ const nouns = [
   "zoologist",
   "zoology",
   "zoot-suit",
-  "zucchini"];
+  "zucchini",
+];
 
 const prefixes = [
   "a",
@@ -6866,6 +6867,7 @@ const prefixes = [
   "norr",
   "ny",
   "o",
+  "O'",
   "Ó",
   "ua",
   "uí",
@@ -6900,7 +6902,7 @@ const prefixes = [
   "van den ",
   "van der ",
   "van het ",
-  "van 't",
+  "van 't ",
   "väst",
   "väster",
   "verch",
