@@ -1,6 +1,14 @@
+const noCapitalize = ['von', 'van', 'de', 'den', 'der', 'het', "'t"];
+
 String.prototype.toTitleCase = function (str) {
   const string = this || str;
-  return string.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+  return string
+    .split(' ')
+    .map(word => 
+      noCapitalize.includes(word.toLowerCase()) ?
+        word :
+        word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ');
 }
 
 function randomLetters(length) {
@@ -26,6 +34,8 @@ function middleInitial() {
   return letters[Math.floor(Math.random() * letters.length)] + '.';
 }
 
+const capitalPrefixes = ['mc', 'mac', 'mck', 'mic', 'mhic', "o'", "m'"];
+
 function lastName() {
   let name = '';
 
@@ -35,7 +45,12 @@ function lastName() {
   }
 
   // name += randomLetters();
-  name += nouns[Math.floor(Math.random() * nouns.length)];
+  if (capitalPrefixes.includes(name.toLowerCase())) {
+    name += nouns[Math.floor(Math.random() * nouns.length)].toTitleCase();
+  }
+  else {
+    name += nouns[Math.floor(Math.random() * nouns.length)];
+  }
 
 
   if (Math.random() < 1 - prefixChance) {
