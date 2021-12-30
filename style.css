@@ -15,11 +15,9 @@ body {
   margin: 0;
 }
 
-button, input {
-  font: inherit;
-}
-
 button {
+  font: inherit;
+  font-size: 0.9em;
   cursor: pointer;
   border: none;
   padding: 1ch;

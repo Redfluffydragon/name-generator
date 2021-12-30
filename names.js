@@ -2,6 +2,11 @@ const copyAllBtn = document.getElementById('copyAllBtn');
 
 const allNames = JSON.parse(sessionStorage.getItem('names')) || [];
 
+/** @type {'FML'|'LFM'} */
+let format = JSON.parse(sessionStorage.getItem('format')) || 'FML';
+
+format === 'LFM' && (document.getElementById('formatBtn').textContent = `Format: ${format}`);
+
 window.addEventListener('load', () => {
   if (allNames.length) {
     allNames.forEach(name => {
@@ -12,8 +17,9 @@ window.addEventListener('load', () => {
 
 document.addEventListener('click', e => {
   if (e.target.matches('#newName')) {
-    let newName = '';
-    newName += `${firstName()} ${middleInitial()} ${lastName()}`;
+    const newName = format === 'FML' ?
+      `${firstName()} ${middleInitial()} ${lastName()}` :
+      `${lastName()}, ${firstName()} ${middleInitial()}`;
 
     displayName(newName);
 
@@ -65,6 +71,11 @@ document.addEventListener('click', e => {
         copyAllBtn.textContent = 'Copy all';
       }, 500);
     }
+  }
+  else if (e.target.matches('#formatBtn')) {
+    format = format === 'FML' ? 'LFM' : 'FML';
+    document.getElementById('formatBtn').textContent = `Format: ${format}`;
+    sessionStorage.setItem('format', JSON.stringify(format));
   }
   else if (e.target.matches('#clearAllBtn')) {
     if (confirm('Are you sure you want to clear all names?')) {
