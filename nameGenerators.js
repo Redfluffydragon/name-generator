@@ -30,8 +30,8 @@ function firstName() {
 }
 
 function middleInitial() {
-  const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-  return letters[Math.floor(Math.random() * letters.length)] + '.';
+  const initials = ['A.', 'B.', 'C.', 'D.', 'E.', 'F.', 'G.', 'H.', 'I.', 'J.', 'K.', 'L.', 'M.', 'N.', 'O.', 'P.', 'Q.', 'R.', 'S.', 'T.', 'U.', 'V.', 'W.', 'X.', 'Y.', 'Z.', 'of'];
+  return initials[Math.floor(Math.random() * initials.length)];
 }
 
 const capitalPrefixes = ['mc', 'mac', 'mck', 'mic', 'mhic', "o'", "m'"];
@@ -51,7 +51,6 @@ function lastName() {
   else {
     name += nouns[Math.floor(Math.random() * nouns.length)];
   }
-
 
   if (Math.random() < 1 - prefixChance) {
     name += suffixes[Math.floor(Math.random() * suffixes.length)];
