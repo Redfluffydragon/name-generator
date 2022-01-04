@@ -74,7 +74,7 @@ document.addEventListener('click', e => {
   }
   else if (e.target.matches('#formatBtn')) {
     format = format === 'FML' ? 'LFM' : 'FML';
-    document.getElementById('formatBtn').textContent = `Format: ${format}`;
+    document.getElementById('formatBtn').textContent = format === 'FML' ? 'First M. Last' : 'Last, M. First';
     sessionStorage.setItem('format', JSON.stringify(format));
   }
   else if (e.target.matches('#clearAllBtn')) {
